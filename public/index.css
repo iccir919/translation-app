@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    max-width: 390px;
+}
+
+header {
+    padding: 3em;
+    height: 215px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    background-image: url("assets/worldmap.png");
+    background-position: center;
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+}
+
+.title {
+    font-size: 45px;
+    color: #32CD32;
+    margin-bottom: 0.1em;
+}
+
+.subtitle {
+    margin-top: 0;
+    color: white;
+    font-size: 0.85em;
+}
+
+main {
+    margin: 1em;
+    border: 5px solid black;
+    border-radius: 0.5em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+    padding: 1em;
+}
+
+
+.section-label {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #035A9D;
+}
+
+textarea {
+    border: none;
+    width: 100%;
+    height: 115px;
+    resize: none;
+    background-color: #EFF0F4;
+    padding: 0.75em;
+    font-size: 1.15rem;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+}
+
+fieldset {
+    border: none;
+    text-align: left;
+}
+
+button {
+    border: none;
+    border-radius: 0.5em;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0.5em;
+    background: #035A9D;
+    color: white;
+    cursor: pointer;
+}
+
+button[disabled] {
+    background: #01233d79;
+    cursor: not-allowed;
+}
+
+#error-text {
+    color: red;
+    text-align: center;
+}

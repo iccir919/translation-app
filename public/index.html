@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>PollyGlot - A Translation App</title>
+
+        <link rel="stylesheet" href="index.css" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oxygen:wght@300;400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Smythe&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <img class="logo" src="assets/parrot.png" />
+                <div>
+                    <h1 class="title">PollyGlot</h1>
+                    <p class="subtitle">Perfect Translation Every Time</p>
+                </div>
+            </header>
+
+            <main>
+                <form id="form">
+                    <div class>
+                        <label class="section-label" for="text-input">Text to Translate 👇</label>
+                        <textarea id="text-input"></textarea>
+                    </div>
+
+                    <fieldset>
+                        <legend class="section-label">Select language 👇</legend>
+
+                        <div>
+                            <input 
+                                type="radio" 
+                                id="languge-radio-1" 
+                                name="language"
+                                value="mexican-spanish"
+                            />
+                            <label class="radio-label" for="languge-radio-1">Mexican Spanish 🇲🇽</label>
+                        </div>
+
+                        <div>
+                            <input 
+                                type="radio" 
+                                id="languge-radio-2" 
+                                name="language"
+                                value="brazilian-portuguese"
+                            />
+                            <label class="radio-label" for="languge-radio-2">Brazilian Portuguese 🇧🇷</label>
+                        </div>
+
+                        <div>
+                            <input 
+                                type="radio" 
+                                id="languge-radio-3" 
+                                name="language"
+                                value="british-english"
+                            />
+                            <label class="radio-label" for="language-radio-3">British English 🇬🇧</label>
+                        </div>
+                    </fieldset>
+
+                    <button id="translate-btn">Translate</button>
+                </form>
+
+                <div id="output">
+
+                </div>
+                
+                <div id="error">
+                    <p id="error-text"></p>
+                </div>
+            </main>
+        </div>
+        <script type="module" src="index.js"></script>
+    </body>
+</html>
