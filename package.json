@@ -1,0 +1,23 @@
+{
+  "name": "translation-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iccir919/translation-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iccir919/translation-app/issues"
+  },
+  "homepage": "https://github.com/iccir919/translation-app#readme",
+  "dependencies": {
+    "openai": "^6.9.1"
+  }
+}
