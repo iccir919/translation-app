@@ -22,7 +22,7 @@
 
             <main>
                 <form id="form">
-                    <div class>
+                    <div class="text-display">
                         <label class="section-label" for="text-input">Text to Translate 👇</label>
                         <textarea id="text-input"></textarea>
                     </div>
@@ -35,9 +35,9 @@
                                 type="radio" 
                                 id="languge-radio-1" 
                                 name="language"
-                                value="mexican-spanish"
+                                value="spanish"
                             />
-                            <label class="radio-label" for="languge-radio-1">Mexican Spanish 🇲🇽</label>
+                            <label class="radio-label" for="languge-radio-1">Spanish 🇪🇸</label>
                         </div>
 
                         <div>
@@ -55,9 +55,9 @@
                                 type="radio" 
                                 id="languge-radio-3" 
                                 name="language"
-                                value="british-english"
+                                value="japanese"
                             />
-                            <label class="radio-label" for="language-radio-3">British English 🇬🇧</label>
+                            <label class="radio-label" for="language-radio-3">Japanese 🇯🇵</label>
                         </div>
                     </fieldset>
 
@@ -65,7 +65,17 @@
                 </form>
 
                 <div id="output">
+                    <div class="text-display">
+                        <label class="section-label" for="text-inputted">Original Text 👇</label>
+                        <textarea id="text-inputted"></textarea>
+                    </div>
 
+                    <div class="text-display">
+                        <label class="section-label" for="text-translated">Translated Text 👇</label>
+                        <textarea id="text-translated"></textarea>
+                    </div>
+
+                    <button id="reset-btn">Start Over</button>
                 </div>
 
                 <div id="error">

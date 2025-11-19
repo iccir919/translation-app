@@ -3,12 +3,16 @@ console.log("index.js loaded");
 const inputForm = document.getElementById("form")
 const inputTextarea = document.getElementById("text-input");
 const translateBtn = document.getElementById("translate-btn");
-const errorText = document.getElementById("error-text")
+const errorText = document.getElementById("error-text");
+const output = document.getElementById("output");
+const textInputted = document.getElementById("text-inputted");
+const textTranslated = document.getElementById("text-translated");
+const resetBtn = document.getElementById("reset-btn")
 
 inputTextarea.addEventListener("selectionchange", (event) => {
-    const input = event.target.value;
+    const textInput = event.target.value;
 
-    if (input.length > 50) {
+    if (textInput.length > 50) {
         translateBtn.disabled = true;
         renderError("Text length must be less than 50 characters.")
     } else {
@@ -36,14 +40,15 @@ inputForm.addEventListener("submit", async (event) => {
         }
 
         const translation = await callTranslateAPI(textInput, language);
-
-        console.log(translation)
+        renderTranslation(textInput, translation)
 
     } catch(error) {
         renderError(error.message)
     }
+})
 
-
+resetBtn.addEventListener("click", (event) => {
+    reset()
 })
 
 async function callTranslateAPI(text, language) {
@@ -69,6 +74,23 @@ async function callTranslateAPI(text, language) {
     }
 }
 
+function renderTranslation(input, translation) {
+    textInputted.textContent = input;
+    textTranslated.textContent = translation;
+
+    output.style.display = "flex";
+    inputForm.style.display = "none";
+}
+
+function reset() {
+    inputForm.reset();
+
+    output.style.display = "none";
+    inputForm.style.display = "flex";
+}
+
 function renderError(error) {
     errorText.textContent = error;
 }
+
+reset();

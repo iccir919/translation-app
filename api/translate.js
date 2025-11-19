@@ -16,7 +16,7 @@ export default async function handler(request, response) {
             return response.status(400).json({ error: "Missing or invalid 'text' field" });
         }
 
-        const allowed = ["brazilian-portuguese", "mexican-spanish", "british-english"];
+        const allowed = ["brazilian-portuguese", "japanese", "spanish"];
         if (!allowed.includes(language)) {
             return response.status(400).json({
                 error: `the value of ${language} for 'language' is not in allowed list`
@@ -25,6 +25,7 @@ export default async function handler(request, response) {
 
         const openAIresponse = await client.chat.completions.create({
             model: "gpt-3.5-turbo",
+            max_tokens: 100,
             messages: [
                 {
                     role: "system",
@@ -59,9 +60,11 @@ export default async function handler(request, response) {
 }
 
 function formatLanguage(language) {
+  if (!language) return "";
+
   return language
     .split("-")
-    .map(word => word[0].toUpperCase() + word.slice(1))
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 }
 
