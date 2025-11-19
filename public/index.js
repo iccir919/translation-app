@@ -18,12 +18,56 @@ inputTextarea.addEventListener("selectionchange", (event) => {
 });
 
 
-form.addEventListener("submit", (event) => {
+inputForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    console.log("Form submitted!")
+    renderError("");
+
+    const data = new FormData(inputForm);
+    const textInput = inputTextarea.value;
+    const language = data.get("language");
+
+    try {
+        if (!language) {
+            throw new Error("A language must be selected.")
+        }
+
+        if (!textInput.trim()) {
+            throw new Error("Please input text to translate.")
+        }
+
+        const translation = await callTranslateAPI(textInput, language);
+
+        console.log(translation)
+
+    } catch(error) {
+        renderError(error.message)
+    }
+
+
 })
 
+async function callTranslateAPI(text, language) {
+    try {
+        const response = await fetch("/api/translate", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({text, language})
+        });
 
+        if (!response.ok) {
+            const { error } = await response.json();
+            throw new Error(error || "Sever returned an unknown error");
+        }
+
+        const data = await response.json();
+        return data.translation
+    } catch(error) {
+        console.error("API call failed:", error);
+        throw error;
+    }
+}
 
 function renderError(error) {
     errorText.textContent = error;
